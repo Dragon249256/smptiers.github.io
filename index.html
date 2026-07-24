@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Player Ranking — Multicraft Ranked System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Multicraft tier system</p>
+      <h1>smptiers.githubb.io</h1>
+      <p class="subtitle">Public player tier view. The ranking table is read-only for all visitors.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro-card">
+      <h2>How the system works</h2>
+      <p>
+        This system creates one shared rank ladder that is independent of kit choice. Every rank is its own player position, and each kit is shown separately as unranked.
+      </p>
+      <ul>
+        <li>#1 is the highest rank.</li>
+        <li>#60 is the lowest rank.</li>
+        <li>Kits are available across all ranks without automatic assignment.</li>
+        <li>Use this page as a clean Multicraft tier system reference.</li>
+      </ul>
+    </section>
+
+    <section class="feature-panel">
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Global ranking</h3>
+          <p>One rank list from best to worst, visible across every kit lineup.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Kit independence</h3>
+          <p>Each kit is displayed as unranked for all ranks until you fill it yourself.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Tier-inspired design</h3>
+          <p>Visually organized rank groups make the system easy to navigate.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="kits-card">
+      <h2>Included Kits</h2>
+      <p>These kits are available in the system. Every rank shows them as unranked by default.</p>
+      <div class="kit-list">
+        <span>Emerald</span>
+        <span>Emerald KB</span>
+        <span>Diamond</span>
+        <span>Diamond KB</span>
+        <span>SMP</span>
+        <span>Mace</span>
+        <span>UHC</span>
+        <span>Dragonhide KB</span>
+      </div>
+    </section>
+
+    <section class="tier-overview">
+      <h2>Tier-style rank groups</h2>
+      <p>
+        Inspired by tier system layouts, the list is broken into visual groups while preserving a single global rank order.
+      </p>
+      <div class="tier-grid">
+        <article class="tier-group tier-top">
+          <h3>#1–10</h3>
+          <p>Champion tier — the top elite ranks.</p>
+        </article>
+        <article class="tier-group tier-high">
+          <h3>#11–20</h3>
+          <p>Legendary tier — strong performers.</p>
+        </article>
+        <article class="tier-group tier-epic">
+          <h3>#21–30</h3>
+          <p>Elite tier — skilled and consistent.</p>
+        </article>
+        <article class="tier-group tier-rare">
+          <h3>#31–40</h3>
+          <p>Veteran tier — experienced competitors.</p>
+        </article>
+        <article class="tier-group tier-uncommon">
+          <h3>#41–50</h3>
+          <p>Skilled tier — solid and improving.</p>
+        </article>
+        <article class="tier-group tier-common">
+          <h3>#51–60</h3>
+          <p>Rookie tier — new or rising players.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <div class="table-section-header">
+        <div>
+          <h2>Cross-Kit Ranking Table</h2>
+          <p>This public view shows player tiers and kit statuses in read-only mode.</p>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Emerald</th>
+              <th>Emerald KB</th>
+              <th>Diamond</th>
+              <th>Diamond KB</th>
+              <th>SMP</th>
+              <th>Mace</th>
+              <th>UHC</th>
+              <th>Dragonhide KB</th>
+            </tr>
+          </thead>
+          <tbody id="rank-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Created for smptiers.github.io</p>
+    </div>
+  </footer>
+
+  <script>
+    const kits = [
+      'Emerald',
+      'Emerald KB',
+      'Diamond',
+      'Diamond KB',
+      'SMP',
+      'Mace',
+      'UHC',
+      'Dragonhide KB'
+    ];
+
+    const savedData = localStorage.getItem('smptiers-rank-data');
+    const ranks = savedData ? JSON.parse(savedData) : Array.from({ length: 60 }, (_, index) => ({
+      rank: index + 1,
+      player: '',
+      kits: kits.reduce((acc, kit) => ({ ...acc, [kit]: 'Unranked' }), {})
+    }));
+
+    const tbody = document.getElementById('rank-table-body');
+
+    function createRankRow(entry) {
+      const row = document.createElement('tr');
+      const playerCell = document.createElement('td');
+      const playerText = document.createElement('span');
+      playerText.className = 'readonly-text';
+      playerText.textContent = entry.player || '—';
+      playerCell.appendChild(playerText);
+
+      row.innerHTML = `<td>#${entry.rank}</td>`;
+      row.appendChild(playerCell);
+
+      kits.forEach(kit => {
+        const kitCell = document.createElement('td');
+        const kitText = document.createElement('span');
+        kitText.className = 'readonly-text';
+        kitText.textContent = entry.kits[kit];
+        kitCell.appendChild(kitText);
+        row.appendChild(kitCell);
+      });
+
+      tbody.appendChild(row);
+    }
+
+    function renderTable() {
+      tbody.innerHTML = '';
+      ranks.forEach(createRankRow);
+    }
+
+    renderTable();
+  </script>
+</body>
+</html>
