@@ -240,14 +240,15 @@ body::before {
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 720px;
+  min-width: 1200px;
+  font-size: 1.05rem;
 }
 
 thead th {
   text-align: left;
   padding: 1rem 1rem 0.75rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   color: #cbd5e1;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -255,7 +256,47 @@ thead th {
 tbody td {
   padding: 1rem 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  vertical-align: top;
+  vertical-align: middle;
+}
+
+.profile-cell {
+  width: 90px;
+}
+
+.profile-badge {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(125, 211, 252, 0.2), rgba(168, 85, 247, 0.18));
+  border: 1px solid rgba(125, 211, 252, 0.3);
+  font-size: 1.7rem;
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
+}
+
+.player-name {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.player-cell {
+  min-width: 220px;
+}
+
+.kit-cell {
+  min-width: 120px;
+}
+
+.avatar-select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  color: #f8fafc;
+  padding: 0.7rem 0.75rem;
+  font-size: 0.95rem;
 }
 
 tbody tr:nth-child(odd) {

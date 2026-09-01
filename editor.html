@@ -121,7 +121,8 @@
         text-transform: uppercase;
       }
 
-      input {
+      input,
+      select {
         width: 100%;
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -131,7 +132,8 @@
         font-size: 0.9rem;
       }
 
-      input:focus {
+      input:focus,
+      select:focus {
         outline: 2px solid rgba(56, 189, 248, 0.5);
         border-color: var(--accent);
       }
@@ -178,6 +180,7 @@
               <tr>
                 <th class="rank-col">Rank</th>
                 <th class="player-col">Player</th>
+                <th class="tier-col">Icon</th>
                 <th class="tier-col">Emerald</th>
                 <th class="tier-col">Emerald KB</th>
                 <th class="tier-col">Diamond</th>
@@ -210,6 +213,14 @@
         'Dragonhide KB'
       ];
 
+      const avatarOptions = [
+        { value: 'default', label: 'Default' },
+        { value: 'mace', label: 'Mace' },
+        { value: 'spear', label: 'Spear' },
+        { value: 'lava', label: 'Lava bucket' },
+        { value: 'sword', label: 'Diamond sword' }
+      ];
+
       const storageKey = 'smptiers-rank-data';
       const statusEl = document.getElementById('status');
       const tbody = document.getElementById('editor-body');
@@ -218,6 +229,7 @@
         return Array.from({ length: 60 }, (_, index) => ({
           rank: index + 1,
           player: '',
+          avatar: 'default',
           kits: kits.reduce((acc, kit) => {
             acc[kit] = 'Unranked';
             return acc;
@@ -235,6 +247,7 @@
           return parsed.map((entry, index) => ({
             rank: index + 1,
             player: entry.player || '',
+            avatar: avatarOptions.some((option) => option.value === entry.avatar) ? entry.avatar : 'default',
             kits: kits.reduce((acc, kit) => {
               acc[kit] = entry.kits && entry.kits[kit] ? String(entry.kits[kit]) : 'Unranked';
               return acc;
@@ -272,6 +285,24 @@
           });
           playerCell.appendChild(playerInput);
           row.appendChild(playerCell);
+
+          const avatarCell = document.createElement('td');
+          const avatarSelect = document.createElement('select');
+          avatarOptions.forEach((option) => {
+            const opt = document.createElement('option');
+            opt.value = option.value;
+            opt.textContent = option.label;
+            if (entry.avatar === option.value) {
+              opt.selected = true;
+            }
+            avatarSelect.appendChild(opt);
+          });
+          avatarSelect.addEventListener('change', (event) => {
+            entry.avatar = event.target.value;
+            saveData();
+          });
+          avatarCell.appendChild(avatarSelect);
+          row.appendChild(avatarCell);
 
           kits.forEach((kit) => {
             const cell = document.createElement('td');
