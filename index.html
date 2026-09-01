@@ -12,6 +12,10 @@
       <p class="eyebrow">Multicraft tier system</p>
       <h1>smptiers.github.io</h1>
       <p class="subtitle">Public player tier view. The ranking table is read-only for all visitors.</p>
+      <div class="music-controls" style="margin-top: 1.25rem;">
+        <button id="music-toggle" class="music-toggle" type="button" aria-pressed="false">Music: Off</button>
+        <span class="music-note">No lyrics • ambient lobby loop</span>
+      </div>
     </div>
   </header>
 
@@ -179,6 +183,96 @@
     }
 
     renderTable();
+
+    const musicButton = document.getElementById('music-toggle');
+    let audioCtx = null;
+    let masterGain = null;
+    let intervalId = null;
+
+    function stopAmbientMusic() {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+
+      if (audioCtx && masterGain) {
+        masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+        masterGain.gain.setTargetAtTime(0.0001, audioCtx.currentTime, 0.2);
+      }
+
+      if (musicButton) {
+        musicButton.textContent = 'Music: Off';
+        musicButton.setAttribute('aria-pressed', 'false');
+      }
+    }
+
+    function startAmbientMusic() {
+      const AudioCtor = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtor) return;
+
+      if (!audioCtx) {
+        audioCtx = new AudioCtor();
+        masterGain = audioCtx.createGain();
+        masterGain.gain.value = 0.0001;
+        masterGain.connect(audioCtx.destination);
+      }
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      const chordNotes = [220, 277.18, 329.63, 392.0];
+      let currentIndex = 0;
+
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+
+      const playChord = () => {
+        const now = audioCtx.currentTime;
+        const chordGain = audioCtx.createGain();
+        chordGain.gain.value = 0.0001;
+        chordGain.connect(masterGain);
+
+        chordNotes.forEach((freq, i) => {
+          const osc = audioCtx.createOscillator();
+          osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+          osc.frequency.value = freq;
+          osc.connect(chordGain);
+          osc.start(now);
+          osc.stop(now + 1.8);
+        });
+
+        chordGain.gain.setValueAtTime(0.0001, now);
+        chordGain.gain.exponentialRampToValueAtTime(0.06, now + 0.18);
+        chordGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+      };
+
+      playChord();
+      intervalId = setInterval(() => {
+        currentIndex = (currentIndex + 1) % chordNotes.length;
+        playChord();
+      }, 1600);
+
+      masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+      masterGain.gain.setTargetAtTime(0.08, audioCtx.currentTime, 0.3);
+
+      if (musicButton) {
+        musicButton.textContent = 'Music: On';
+        musicButton.setAttribute('aria-pressed', 'true');
+      }
+    }
+
+    if (musicButton) {
+      musicButton.addEventListener('click', () => {
+        const isOn = musicButton.getAttribute('aria-pressed') === 'true';
+        if (isOn) {
+          stopAmbientMusic();
+        } else {
+          startAmbientMusic();
+        }
+      });
+    }
   </script>
 </body>
 </html>
