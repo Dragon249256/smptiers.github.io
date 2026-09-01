@@ -221,61 +221,63 @@
         audioCtx.resume();
       }
 
-      const progression = [174.61, 220.0, 261.63, 293.66, 220.0, 261.63, 349.23, 293.66];
-      const noiseBuffer = audioCtx.createBuffer(1, audioCtx.sampleRate * 2, audioCtx.sampleRate);
+      const progression = [130.81, 146.83, 174.61, 196.0, 146.83, 164.81, 196.0, 220.0];
+      const noiseBuffer = audioCtx.createBuffer(1, audioCtx.sampleRate * 3, audioCtx.sampleRate);
       const bufferData = noiseBuffer.getChannelData(0);
       for (let i = 0; i < bufferData.length; i++) {
-        bufferData[i] = (Math.random() * 2 - 1) * 0.08;
+        bufferData[i] = (Math.random() * 2 - 1) * 0.12;
       }
 
       if (intervalId) {
         clearInterval(intervalId);
       }
 
-      const playLayer = (freq, time, duration, kind, gainValue) => {
+      const playLayer = (freq, time, duration, kind, gainValue, detune) => {
         const osc = audioCtx.createOscillator();
         const oscGain = audioCtx.createGain();
         osc.type = kind;
         osc.frequency.value = freq;
+        osc.detune.value = detune || 0;
         oscGain.gain.value = 0.0001;
         osc.connect(oscGain);
         oscGain.connect(masterGain);
 
         oscGain.gain.setValueAtTime(0.0001, time);
-        oscGain.gain.exponentialRampToValueAtTime(gainValue, time + 0.18);
+        oscGain.gain.exponentialRampToValueAtTime(gainValue, time + 0.22);
         oscGain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
 
         osc.start(time);
-        osc.stop(time + duration + 0.04);
+        osc.stop(time + duration + 0.05);
       };
 
       const playAtmosphere = () => {
         const now = audioCtx.currentTime;
         const baseFreq = progression[Math.floor(Math.random() * progression.length)];
 
-        playLayer(baseFreq, now, 2.4, 'sine', 0.03);
-        playLayer(baseFreq / 2, now + 0.2, 2.6, 'triangle', 0.02);
-        playLayer(baseFreq * 1.5, now + 0.5, 2.2, 'sine', 0.012);
+        playLayer(baseFreq, now, 3.0, 'sine', 0.05, -6);
+        playLayer(baseFreq / 2, now + 0.3, 3.4, 'triangle', 0.036, 4);
+        playLayer(baseFreq * 1.5, now + 0.7, 2.6, 'sine', 0.024, 8);
+        playLayer(baseFreq * 2, now + 1.1, 2.2, 'triangle', 0.012, -12);
 
         const noiseSource = audioCtx.createBufferSource();
         const noiseFilter = audioCtx.createBiquadFilter();
         const noiseGain = audioCtx.createGain();
         noiseSource.buffer = noiseBuffer;
         noiseFilter.type = 'lowpass';
-        noiseFilter.frequency.value = 700;
-        noiseGain.gain.value = 0.015;
+        noiseFilter.frequency.value = 850;
+        noiseGain.gain.value = 0.022;
         noiseSource.connect(noiseFilter);
         noiseFilter.connect(noiseGain);
         noiseGain.connect(masterGain);
         noiseSource.start(now);
-        noiseSource.stop(now + 2.8);
+        noiseSource.stop(now + 3.2);
       };
 
       playAtmosphere();
       intervalId = setInterval(playAtmosphere, 2600);
 
       masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
-      masterGain.gain.setTargetAtTime(0.12, audioCtx.currentTime, 0.5);
+      masterGain.gain.setTargetAtTime(0.16, audioCtx.currentTime, 0.5);
 
       if (musicButton) {
         musicButton.textContent = 'Music: On';
