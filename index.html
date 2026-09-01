@@ -245,10 +245,12 @@
 
       const playerCell = document.createElement('td');
       playerCell.className = 'player-cell';
-      const playerText = document.createElement('span');
-      playerText.className = 'player-name';
-      playerText.textContent = entry.player || '—';
-      playerCell.appendChild(playerText);
+      const playerButton = document.createElement('button');
+      playerButton.type = 'button';
+      playerButton.className = 'player-name-button';
+      playerButton.innerHTML = `${icons[entry.avatar] || icons.default} <span>${entry.player || '—'}</span> <small>View</small>`;
+      playerButton.addEventListener('click', openEntry);
+      playerCell.appendChild(playerButton);
       row.appendChild(playerCell);
 
       kits.forEach(kit => {
