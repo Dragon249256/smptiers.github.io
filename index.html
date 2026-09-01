@@ -215,10 +215,21 @@
       }
     });
 
-    function createRankRow(entry) {
+    function createRankRow(entry, index) {
       const row = document.createElement('tr');
       row.className = 'rank-row';
-      row.addEventListener('click', () => openPlayerModal(entry));
+      row.setAttribute('tabindex', '0');
+      row.setAttribute('role', 'button');
+      row.dataset.index = String(index);
+
+      const openEntry = () => openPlayerModal(entry);
+      row.addEventListener('click', openEntry);
+      row.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openEntry();
+        }
+      });
 
       const iconCell = document.createElement('td');
       iconCell.className = 'profile-cell';
@@ -255,8 +266,17 @@
 
     function renderTable() {
       tbody.innerHTML = '';
-      ranks.forEach(createRankRow);
+      ranks.forEach((entry, index) => createRankRow(entry, index));
     }
+
+    tbody.addEventListener('click', (event) => {
+      const row = event.target.closest('tr.rank-row');
+      if (!row) return;
+      const index = Number(row.dataset.index);
+      if (!Number.isNaN(index) && ranks[index]) {
+        openPlayerModal(ranks[index]);
+      }
+    });
 
     renderTable();
 
