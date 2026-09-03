@@ -334,6 +334,16 @@
 
     async function loadSharedRanks() {
       try {
+        const localData = localStorage.getItem('smptiers-rank-data');
+        if (localData) {
+          const localRanks = JSON.parse(localData);
+          if (Array.isArray(localRanks) && localRanks.length > 0) {
+            ranks = normalizeRanks(localRanks);
+            renderTable();
+            return;
+          }
+        }
+
         const response = await fetch('./data/ranks.json', { cache: 'no-store' });
         if (!response.ok) throw new Error(`Unable to load shared rankings (${response.status})`);
         const sharedRanks = await response.json();
