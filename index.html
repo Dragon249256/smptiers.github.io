@@ -134,6 +134,51 @@
     </div>
   </footer>
 
+  <div id="profileModalOverlay" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="profile-modal" id="profileModal">
+      <div class="profile-banner" id="pBanner">
+        <div class="modal-actions">
+          <button class="icon-btn" title="Close" onclick="closePlayerProfile()">✕</button>
+        </div>
+      </div>
+
+      <div class="profile-body">
+        <div class="profile-top-row">
+          <div class="avatar-preview-box" id="pAvatar">⭐</div>
+
+          <div class="player-meta-box">
+            <h1 class="player-name-title" id="pName">PlayerName</h1>
+            <div class="player-badges-row">
+              <span class="badge-pill badge-rank" id="pRank">RANK #1</span>
+              <span class="badge-pill badge-title" id="pTitleBadge">PLAYER</span>
+            </div>
+          </div>
+
+          <div class="points-counter-box">
+            <div class="points-num" id="pPoints">0</div>
+            <div class="points-lbl">PTS</div>
+          </div>
+        </div>
+
+        <div class="player-bio-card">
+          <div id="pDescription">No description available.</div>
+          <div class="bio-meta-grid">
+            <div id="pRegion">REGION: --</div>
+            <div id="pDevice">DEVICE: --</div>
+            <div id="pRival">RIVAL: None</div>
+            <div id="pLfm">LFM: OFF</div>
+          </div>
+        </div>
+
+        <div class="modal-section-title">
+          <span>KIT EVALUATIONS & TIERS</span>
+        </div>
+
+        <div class="kit-circles-grid" id="pTiers"></div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const icons = {
       mace: '🗡️',
@@ -154,66 +199,76 @@
       'Dragonhide KB'
     ];
 
-    const savedData = localStorage.getItem('smptiers-rank-data');
-    const ranks = savedData ? JSON.parse(savedData) : Array.from({ length: 60 }, (_, index) => ({
-      rank: index + 1,
-      player: '',
-      avatar: 'default',
-      kits: kits.reduce((acc, kit) => ({ ...acc, [kit]: 'Unranked' }), {})
-    }));
+    function makeBlankRanks() {
+      return Array.from({ length: 60 }, (_, index) => ({
+        rank: index + 1,
+        player: '',
+        avatar: 'default',
+        kits: kits.reduce((acc, kit) => ({ ...acc, [kit]: 'Unranked' }), {})
+      }));
+    }
+
+    function normalizeRanks(entries) {
+      return entries.map((entry, index) => ({
+        rank: index + 1,
+        player: entry.player || '',
+        avatar: icons[entry.avatar] ? entry.avatar : 'default',
+        kits: kits.reduce((acc, kit) => ({
+          ...acc,
+          [kit]: entry.kits && entry.kits[kit] ? String(entry.kits[kit]) : 'Unranked'
+        }), {})
+      }));
+    }
+
+    let ranks = makeBlankRanks();
 
     const tbody = document.getElementById('rank-table-body');
-    const modal = document.createElement('div');
-    modal.className = 'player-modal';
-    modal.innerHTML = `
-      <div class="player-card">
-        <div class="player-card-header">
-          <div class="player-card-title">
-            <div class="profile-badge profile-badge-large">⭐</div>
-            <div>
-              <div class="player-card-rank">Rank #1</div>
-              <h3>Player Name</h3>
-            </div>
-          </div>
-          <button class="close-modal" type="button" aria-label="Close player details">×</button>
-        </div>
-        <ul class="player-tier-list"></ul>
-      </div>
-    `;
-    document.body.appendChild(modal);
+    const modalOverlay = document.getElementById('profileModalOverlay');
+    const modalAvatar = document.getElementById('pAvatar');
+    const modalName = document.getElementById('pName');
+    const modalRank = document.getElementById('pRank');
+    const modalTitleBadge = document.getElementById('pTitleBadge');
+    const modalPoints = document.getElementById('pPoints');
+    const modalDescription = document.getElementById('pDescription');
+    const modalRegion = document.getElementById('pRegion');
+    const modalDevice = document.getElementById('pDevice');
+    const modalRival = document.getElementById('pRival');
+    const modalLfm = document.getElementById('pLfm');
+    const modalTiers = document.getElementById('pTiers');
 
-    const modalBadge = modal.querySelector('.profile-badge');
-    const modalRank = modal.querySelector('.player-card-rank');
-    const modalTitle = modal.querySelector('h3');
-    const modalList = modal.querySelector('.player-tier-list');
-    const closeButton = modal.querySelector('.close-modal');
+    function closeModalOnBackdrop(event) {
+      if (event.target === modalOverlay) {
+        closePlayerProfile();
+      }
+    }
+
+    function closePlayerProfile() {
+      modalOverlay.classList.remove('visible');
+    }
 
     function openPlayerModal(entry) {
       const playerName = entry.player || 'Unnamed Player';
-      modalBadge.textContent = icons[entry.avatar] || icons.default;
-      modalRank.textContent = `Rank #${entry.rank}`;
-      modalTitle.textContent = playerName;
+      modalAvatar.textContent = icons[entry.avatar] || icons.default;
+      modalName.textContent = playerName;
+      modalRank.textContent = `RANK #${entry.rank}`;
+      modalTitleBadge.textContent = 'PLAYER';
+      modalPoints.textContent = String(entry.rank || 1);
+      modalDescription.textContent = 'No description available.';
+      modalRegion.textContent = `REGION: --`;
+      modalDevice.textContent = `DEVICE: --`;
+      modalRival.textContent = 'RIVAL: None';
+      modalLfm.textContent = 'LFM: OFF';
 
-      modalList.innerHTML = '';
+      modalTiers.innerHTML = '';
       kits.forEach((kit) => {
-        const item = document.createElement('li');
-        item.innerHTML = `<strong>${kit}</strong><span>${entry.kits[kit] || 'Unranked'}</span>`;
-        modalList.appendChild(item);
+        const tierItem = document.createElement('div');
+        tierItem.className = 'kit-circle';
+        tierItem.innerHTML = `<span class="kit-label">${kit}</span><span class="kit-value">${entry.kits[kit] || 'Unranked'}</span>`;
+        modalTiers.appendChild(tierItem);
       });
 
-      modal.classList.add('visible');
+      modalOverlay.classList.add('visible');
     }
-
-    function closePlayerModal() {
-      modal.classList.remove('visible');
-    }
-
-    closeButton.addEventListener('click', closePlayerModal);
-    modal.addEventListener('click', (event) => {
-      if (event.target === modal) {
-        closePlayerModal();
-      }
-    });
 
     function createRankRow(entry, index) {
       const row = document.createElement('tr');
@@ -248,8 +303,8 @@
       const playerButton = document.createElement('button');
       playerButton.type = 'button';
       playerButton.className = 'player-name-button';
+      playerButton.setAttribute('onclick', 'openPlayerModalFromIndex(' + index + ')');
       playerButton.innerHTML = `${icons[entry.avatar] || icons.default} <span>${entry.player || '—'}</span> <small>View</small>`;
-      playerButton.addEventListener('click', openEntry);
       playerCell.appendChild(playerButton);
       row.appendChild(playerCell);
 
@@ -266,21 +321,33 @@
       tbody.appendChild(row);
     }
 
+    function openPlayerModalFromIndex(index) {
+      if (ranks[index]) {
+        openPlayerModal(ranks[index]);
+      }
+    }
+
     function renderTable() {
       tbody.innerHTML = '';
       ranks.forEach((entry, index) => createRankRow(entry, index));
     }
 
-    tbody.addEventListener('click', (event) => {
-      const row = event.target.closest('tr.rank-row');
-      if (!row) return;
-      const index = Number(row.dataset.index);
-      if (!Number.isNaN(index) && ranks[index]) {
-        openPlayerModal(ranks[index]);
+    async function loadSharedRanks() {
+      try {
+        const response = await fetch('./data/ranks.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error(`Unable to load shared rankings (${response.status})`);
+        const sharedRanks = await response.json();
+        if (Array.isArray(sharedRanks) && sharedRanks.length > 0) {
+          ranks = normalizeRanks(sharedRanks);
+          renderTable();
+        }
+      } catch (error) {
+        console.warn('Using blank ranking data until the shared data file is available.', error);
       }
-    });
+    }
 
     renderTable();
+    loadSharedRanks();
 
     const musicButton = document.getElementById('music-toggle');
     let audioCtx = null;

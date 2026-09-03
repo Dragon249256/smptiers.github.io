@@ -166,6 +166,7 @@
         <div class="header-actions">
           <a class="button-link" href="index.html">View public site</a>
           <button id="save-btn">Save changes</button>
+          <button id="download-btn">Download shared data</button>
           <button class="danger" id="reset-btn">Reset list</button>
         </div>
       </div>
@@ -198,7 +199,7 @@
     </main>
 
     <footer>
-      <div class="container">Changes are saved in your browser and shown on the public site.</div>
+      <div class="container">Download the shared data file after editing and replace <strong>data/ranks.json</strong> in the repository to publish changes on every device.</div>
     </footer>
 
     <script>
@@ -260,9 +261,44 @@
 
       let data = loadData();
 
+      async function loadSharedData() {
+        if (localStorage.getItem(storageKey)) return;
+        try {
+          const response = await fetch('./data/ranks.json', { cache: 'no-store' });
+          if (!response.ok) return;
+          const sharedData = await response.json();
+          if (Array.isArray(sharedData) && sharedData.length > 0) {
+            data = sharedData.map((entry, index) => ({
+              rank: index + 1,
+              player: entry.player || '',
+              avatar: entry.avatar || 'default',
+              kits: kits.reduce((acc, kit) => {
+                acc[kit] = entry.kits && entry.kits[kit] ? String(entry.kits[kit]) : 'Unranked';
+                return acc;
+              }, {})
+            }));
+            renderEditor();
+            statusEl.textContent = 'Loaded shared ranking data.';
+          }
+        } catch (error) {
+          statusEl.textContent = 'Using blank ranking data.';
+        }
+      }
+
       function saveData() {
         localStorage.setItem(storageKey, JSON.stringify(data));
-        statusEl.textContent = 'Saved locally.';
+        statusEl.textContent = 'Saved in this browser. Download the shared data file to publish it everywhere.';
+      }
+
+      function downloadData() {
+        const file = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'ranks.json';
+        link.click();
+        URL.revokeObjectURL(url);
+        statusEl.textContent = 'Shared data downloaded. Replace data/ranks.json in the repository, then publish it.';
       }
 
       function renderEditor() {
@@ -326,6 +362,8 @@
         statusEl.textContent = 'Changes saved.';
       });
 
+      document.getElementById('download-btn').addEventListener('click', downloadData);
+
       document.getElementById('reset-btn').addEventListener('click', () => {
         if (confirm('Reset the entire ranking list?')) {
           data = makeBlankData();
@@ -336,6 +374,7 @@
       });
 
       renderEditor();
+      loadSharedData();
     </script>
   </body>
 </html>
