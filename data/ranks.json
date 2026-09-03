@@ -1,1 +1,903 @@
 []
+[
+  {
+    "rank": 1,
+    "player": "LilPloki",
+    "avatar": "lava",
+    "kits": {
+      "Emerald": "ht1",
+      "Emerald KB": "Unranked",
+      "Diamond": "lt1",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "ht2"
+    }
+  },
+  {
+    "rank": 2,
+    "player": "Rekrap2",
+    "avatar": "spear",
+    "kits": {
+      "Emerald": "ht3",
+      "Emerald KB": "Unranked",
+      "Diamond": "lt2",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "ht2"
+    }
+  },
+  {
+    "rank": 3,
+    "player": "Terminator",
+    "avatar": "lava",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "lt2",
+      "Diamond": "lt1",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "ht2"
+    }
+  },
+  {
+    "rank": 4,
+    "player": "Kid",
+    "avatar": "spear",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "lt2",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 5,
+    "player": "yorkish",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 6,
+    "player": "diabolical",
+    "avatar": "mace",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "lt3",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 7,
+    "player": "AntonioZga9",
+    "avatar": "spear",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Lt3",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 8,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 9,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 10,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 11,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 12,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 13,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 14,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 15,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 16,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 17,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 18,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 19,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 20,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 21,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 22,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 23,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 24,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 25,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 26,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 27,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 28,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 29,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 30,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 31,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 32,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 33,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 34,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 35,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 36,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 37,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 38,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 39,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 40,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 41,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 42,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 43,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 44,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 45,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 46,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 47,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 48,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 49,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 50,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 51,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 52,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 53,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 54,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 55,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 56,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 57,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 58,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 59,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  },
+  {
+    "rank": 60,
+    "player": "",
+    "avatar": "default",
+    "kits": {
+      "Emerald": "Unranked",
+      "Emerald KB": "Unranked",
+      "Diamond": "Unranked",
+      "Diamond KB": "Unranked",
+      "SMP": "Unranked",
+      "Mace": "Unranked",
+      "UHC": "Unranked",
+      "Dragonhide KB": "Unranked"
+    }
+  }
+]
